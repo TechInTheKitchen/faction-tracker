@@ -2,7 +2,7 @@
 
 A lightweight web app for TTRPG players to check faction standings and read short notes provided by the DM. Filled tracks show each faction's awareness of the party and opinion of the party. Selecting a faction shows its notes beside the list on desktop and in a popup on mobile.
 
-The project adapts the static HTML, CSS, JavaScript, palettes, and local hosting patterns in Stars, Stones & Salt Tarot and Obsidian GitHub Web Hosting. It runs on GitHub Pages or another static hosting service, without a required backend or build step.
+The project adapts the static HTML, CSS, JavaScript, palettes, and local hosting from Stars, Stones & Salt Tarot and Obsidian GitHub Web Hosting. It runs on GitHub Pages or another static hosting service, without a required backend or build step.
 
 ## Run locally
 
@@ -138,7 +138,7 @@ The supplied config includes Influence as its third meter, using a 0–10 scale:
 
 The sample JSON already has `influence` values. Add an `influence` column in Google Sheets and populate every faction row before refreshing with this configuration. To add another meter, copy this definition with a unique `field`, customize its name and bands, and add the matching column/property to your data. Every faction needs a numeric value for every configured meter. Use plain numbers in the data; display suffixes belong in the config. Remove a meter's config entry to stop displaying/requiring it; its data column may remain. Refresh standings reloads both the configuration and values. Invalid definitions or missing/out-of-range values leave the previous successful display intact and show an error.
 
-The supplied config now uses `metrics` as the source of meter customization. Old configs without a `metrics` array still use the original awareness/opinion meters and their legacy `text.awareness`, `text.opinion`, and label arrays. When `metrics` is present, edit it instead. `text.meterValue` still controls the `{label} · {value}` format, and `text.factionAction` uses `{meters}` for accessible descriptions of all configured meters.
+The supplied config uses `metrics` as the source of meter customization. `text.meterValue` controls the `{label} · {value}` format, and `text.factionAction` uses `{meters}` for accessible descriptions of all configured meters.
 
 Update `updatedAt` when you change JSON standings, then click Refresh standings. Customize the sample-campaign footer through `text.footerLeft` and `text.footerRight` in `assets/site-config.json`.
 
@@ -164,19 +164,13 @@ Two configurable sources use the same faction fields:
 - **JSON:** A file shipped with the site containing faction IDs, names, awareness, opinion, and player-facing notes. The DM updates the file and republishes the site.
 - **Google Sheets:** A public viewer sheet supplies the same faction fields through its CSV feed. The tracker fetches with credentials omitted; player accounts and API keys are not required.
 
-Players will view standings without editing them. Neither mode requires player accounts. Google Sheets editing permissions are managed through Google, rather than a password inside this app.
-
-Only player-facing information belongs in the published JSON or spreadsheet. Keep private DM notes and undiscovered factions out of these sources; hiding content in the interface does not make downloaded data private.
-
 ## Optional backend for experienced users
 
-A future extension could add an authenticated DM editor with sliders, note editing, and shared saves. This is outside the initial JSON and Google Sheets scope.
-
-GitHub Pages serves static files and cannot itself authenticate edits or save changes to shared storage. Experienced users can connect the static interface to an authenticated backend, such as Supabase Auth with database access policies, or a Cloudflare Worker with persistent storage and server-side authentication. Players should have read access only to published faction data, and writes should be restricted to authorized DMs. Credentials with privileged access must remain on the server; a password check in browser JavaScript is not an access-control system.
+GitHub Pages serves static files and cannot itself authenticate edits or save changes to shared storage. Experienced users can connect the static interface to an authenticated backend, such as Supabase Auth with database access policies, or a Cloudflare Worker with persistent storage and server-side authentication. Players should have read access only to published faction data, and writes should be restricted to authorized DMs.
 
 ## Project status
 
-The JSON GUI is implemented with six fictional sample factions, responsive faction notes, search, refresh, and four paired light/dark palettes. Google Sheets integration is enabled and verified with the public test sheet.
+The JSON GUI is implemented with six fictional sample factions, faction notes, search, refresh, and four paired light/dark palettes. Google Sheets integration is enabled with the public test sheet.
 
 ## Credits and license
 
