@@ -2,7 +2,7 @@
 
 A lightweight web app for TTRPG players to check faction standings and read short notes provided by the DM. Filled tracks show each faction's awareness of the party and opinion of the party. Selecting a faction shows its notes beside the list on desktop and in a popup on mobile.
 
-The project adapts the static HTML, CSS, JavaScript, palettes, and local hosting from Stars, Stones & Salt Tarot and Obsidian GitHub Web Hosting. It runs on GitHub Pages or another static hosting service, without a required backend or build step.
+The project adapts the static HTML, CSS, JavaScript, palettes, and local hosting from Stars, Stones & Salt Tarot and Obsidian GitHub Web Hosting. It runs on GitHub Pages or another static hosting service, without a required backend or build step. 
 
 ## Run locally
 
